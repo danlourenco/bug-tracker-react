@@ -1,0 +1,18 @@
+[
+  {
+    "id": "1",
+    "reporter": "Dan Lourenco",
+    "title": "Things aren't working",
+    "description": "Things won't work",
+    "severity": "high",
+    "status": "open"
+  },
+  {
+    "id": "2",
+    "reporter": "Peter Tork",
+    "title": "Computer catches fire when inspecting DOM",
+    "description": "When I open the dev tools, my computer bursts into flames",
+    "severity": "high",
+    "status": "won't fix"
+  }
+]
