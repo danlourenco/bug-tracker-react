@@ -6,7 +6,11 @@ import BugTable from './BugTable';
 import AddBugForm from './AddBugForm';
 
 class App extends Component {
-  render() {
+
+    logBug = (description, reporter, severity, status) =>
+      console.log(`Description: ${description} \n Reporter: ${reporter} \n Severity: ${severity} \n Status: ${status}`)
+  
+    render() {
     return (
       <div className="App">
         <nav className="navbar" role="navigation" aria-label="main navigation">
@@ -24,7 +28,7 @@ class App extends Component {
             </h1>
 
             <BugTable bugs={data} />
-            <AddBugForm />
+            <AddBugForm onNewBug={this.logBug} />
           </div>
         </section>
       </div>

@@ -8,9 +8,14 @@ class AddBugForm extends Component {
   }
 
   submit(e) {
-    const { _description, _reporter, _severity, _status } = this.refs
-    console.log(e)
     e.preventDefault()
+    var { _description, _reporter, _severity, _status } = this.refs
+    console.log(e)
+    this.props.onNewBug(_description.value, _reporter.value, _severity.value, _status.value)
+    _description.value = ''
+    _reporter.value = ''
+    _severity.value = ''
+    _status.value = ''
   }
 
   render() {
@@ -28,7 +33,7 @@ class AddBugForm extends Component {
           <div className="field">
             <label className="label">Reporter</label>
             <div className="control has-icons-left">
-              <input className="input is-success" ref="_reporter" type="text" placeholder="Logged in user" value="" />
+              <input className="input is-success" ref="_reporter" type="text" placeholder="Logged in user"  />
               <span className="icon is-small is-left">
                 <i className="fa fa-user"></i>
               </span>
