@@ -20,9 +20,10 @@ class AddBugForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.submit}>
-          <h2 className="title is-4 is-primary">Submit new bug</h2>
-
+      <section class="section">
+        <div class="container">
+          <h1 class="title">Submit New Bug</h1>
+          <form onSubmit={this.submit}>
           <div className="field">
             <label className="label">Description</label>
             <div className="control">
@@ -77,6 +78,9 @@ class AddBugForm extends Component {
               </div>
           </div>
       </form>
+        </div>
+      </section>
+      
 
     )
   }

@@ -4,9 +4,9 @@ import '../styles/App.css';
 import data from '../data/bugs.json';
 import BugTable from './BugTable';
 import AddBugForm from './AddBugForm';
+import LoginForm from './LoginForm';
 import Home from './Home';
-import { Security, SecureRoute, ImplicitCallback } from '@okta/okta-react';
-import { Switch, Route } from 'react-router-dom'
+import { Link, Switch, Route } from 'react-router-dom'
 
 
 class App extends Component {
@@ -21,20 +21,22 @@ class App extends Component {
       <div className="App">
         <nav className="navbar" role="navigation" aria-label="main navigation">
           <div className="navbar-brand">
-            <a className="navbar-item" href="/">BugTrackr</a>
+            {/* <a className="navbar-item" href="/">BugTrackr</a> */}
+            <Link className="navbar-item" to="/">BugTrackr</Link>
           </div>
           <div className="navbar-menu">
-            <a className="navbar-item" href="add">Report a Bug</a>
-            <a className="navbar-item" href="view">View All Bugs</a>
+          <Link className="navbar-item" to="/login">Login</Link>
+            <Link className="navbar-item" to="/add">Report a Bug</Link>
+            <Link className="navbar-item" to="/view">View Bugs</Link>
           </div>
-          
         </nav>
 
             {/* Where page components are rendered! */}
             <Switch>
-              <Route exact path='/login' component={Home}/>
               <Route exact path='/' component={Home}/>
-              <Route exact path='/create' component={Home}/>
+              <Route exact path='/login' component={LoginForm}/>
+              <Route exact path='/add' component={AddBugForm}/>
+              <Route exact path='/view' component={BugTable}/>
             </Switch>
             
       </div>
