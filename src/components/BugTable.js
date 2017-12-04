@@ -1,8 +1,9 @@
 import React from 'react';
 import BugRow from './BugRow';
 import App from './App';
+import data from '../data/bugs.json';
 
-const BugTable = ({ bugs }) =>
+const BugTable = ({ bugs = data}) =>
   <table className="table">
     <thead>
       <tr>
