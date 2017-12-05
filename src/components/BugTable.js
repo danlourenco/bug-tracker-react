@@ -4,7 +4,10 @@ import App from './App';
 import data from '../data/bugs.json';
 
 const BugTable = ({ bugs = data}) =>
-  <table className="table">
+  <section className="section">
+    <div className="container">
+      <h1 className="title">List of Bugs</h1>
+      <table className="table">
     <thead>
       <tr>
         <th>Description</th>
@@ -19,6 +22,9 @@ const BugTable = ({ bugs = data}) =>
       }
     </tbody>
   </table>
+    </div>
+  </section>
+  
 
 
 
