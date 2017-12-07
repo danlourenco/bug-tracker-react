@@ -7,8 +7,8 @@ const BugTable = ({ bugs = data}) =>
   <section className="section">
     <div className="container">
       <h1 className="title">List of Bugs</h1>
-      <table className="table">
-    <thead>
+      <table className="table is-bordered">
+    <thead className="is-primary">
       <tr>
         <th>Description</th>
         <th>Reporter</th>

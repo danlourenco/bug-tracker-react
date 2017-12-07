@@ -35,17 +35,24 @@ class App extends Component {
       let bugObj = {id: data.length, description, reporter, severity, status};
       data.push(bugObj);
     }
+    
     render() {
       return (
         <div className="App">
-          <nav className="navbar" role="navigation" aria-label="main navigation">
+          <nav className="navbar is-primary" role="navigation" aria-label="main navigation">
             <div className="navbar-brand">
               {/* <a className="navbar-item" href="/">BugTrackr</a> */}
-              <Link className="navbar-item" to="/">BugTrackr</Link>
+              <Link className="navbar-item" to="/">
+                <span className="icon">
+                  <i className="fa fa-bug"></i>
+                </span> BugTrackr
+              </Link>
             </div>
             <div className="navbar-menu">
-              <Link className="navbar-item" to="/add">Report a Bug</Link>
-              <Link className="navbar-item" to="/view">View Bugs</Link>
+              <div className="navbar-start">
+                <Link className="navbar-item" to="/add">Submit a Bug</Link>
+                <Link className="navbar-item" to="/view">View Bugs</Link>
+              </div>
             </div>
           </nav>
 
