@@ -1,7 +1,7 @@
 import React from 'react';
 import BugRow from './BugRow';
 import App from './App';
-import data from '../data/bugs.json';
+import {data} from './App';
 
 const BugTable = ({ bugs = data}) =>
   <section className="section">
@@ -24,7 +24,7 @@ const BugTable = ({ bugs = data}) =>
   </table>
     </div>
   </section>
-  
+
 
 
 
