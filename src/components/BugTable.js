@@ -1,9 +1,7 @@
-import React from 'react';
-import BugRow from './BugRow';
-import App from './App';
-import {data} from './App';
+import React from 'react'
+import BugRow from './BugRow'
 
-const BugTable = ({ bugs = data}) =>
+const BugTable = ({bugs}) =>
   <section className="section">
     <div className="container">
       <h1 className="title">List of Bugs</h1>
@@ -24,8 +22,5 @@ const BugTable = ({ bugs = data}) =>
   </table>
     </div>
   </section>
-
-
-
 
 export default BugTable;

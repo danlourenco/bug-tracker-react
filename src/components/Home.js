@@ -1,22 +1,19 @@
-import React from 'react';
+import React from 'react'
 
 const Home = () =>
- <section class="hero is-bold is-large">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
+ <section className="hero is-bold is-large">
+  <div className="hero-body">
+    <div className="container">
+      <h1 className="title">
       <span className="icon">
-  <i className="fa fa-bug"></i>
-</span> BugTrackr
+        <i className="fa fa-bug"></i>
+      </span> BugTrackr
       </h1>
-      <h2 class="subtitle">
+      <h2 className="subtitle">
         The quick and easy way to report bugs
       </h2>
     </div>
   </div>
 </section>
 
-export default Home;
-
-{/* <BugTable bugs={data} />
-<AddBugForm onNewBug={this.logBug} /> */}
+export default Home

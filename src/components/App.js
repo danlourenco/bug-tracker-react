@@ -1,47 +1,70 @@
 import React, { Component } from 'react'
-import logo from '../logo.svg'
 import '../styles/App.css'
-// import data from '../data/bugs.json'
 import BugTable from './BugTable'
 import AddBugForm from './AddBugForm'
 import Home from './Home'
 import { Link, Switch, Route } from 'react-router-dom'
 
-export var data = [
-  {
-    id: 0,
-    reporter: "Dan Lourenco",
-    title: "Things aren't working",
-    description: "Things won't work",
-    severity: "medium",
-    status: "open"
-  },
-  {
-    id: 1,
-    reporter: "Peter Tork",
-    title: "Computer catches fire when inspecting DOM",
-    description: "When I open the dev tools, my computer bursts into flames",
-    severity: "high",
-    status: "won't fix"
-  }
-];
-
 class App extends Component {
+
+    constructor(props) {
+      super(props);
+      this.state = {
+        data: [
+          {
+            id: 0,
+            reporter: "Dan Lourenco",
+            title: "Things aren't working",
+            description: "Things won't work",
+            severity: "medium",
+            status: "Open"
+          },
+          {
+            id: 1,
+            reporter: "Peter Tork",
+            title: "Computer catches fire when inspecting DOM",
+            description: "When I open the dev tools, my computer bursts into flames",
+            severity: "high",
+            status: "Investigating"
+          }
+        ]
+      }
+      this.addBug = this.addBug.bind(this);
+    }
 
     logBug = (description, reporter, severity, status) =>
       console.log(`Description: ${description} \n Reporter: ${reporter} \n Severity: ${severity} \n Status: ${status}`)
   
     addBug = (description, reporter, severity, status) => {
-      let bugObj = {id: data.length, description, reporter, severity, status};
-      data.push(bugObj);
+      const newData = [
+        ...this.state.data,
+        {
+          id: this.state.data.length,
+          description,
+          reporter,
+          severity,
+          status
+        }
+      ];
+      this.setState({
+        data: newData,
+        function() {
+          console.log(this.state.data)
+        }
+      });
+
+    }
+
+    // load from localStorage if available
+    componentWillMount() {
+      console.log('componentWillMount lifecycle method');
     }
     
     render() {
       return (
         <div className="App">
-          <nav className="navbar is-primary" role="navigation" aria-label="main navigation">
+          <nav className="navbar is-primary" aria-label="main navigation">
             <div className="navbar-brand">
-              {/* <a className="navbar-item" href="/">BugTrackr</a> */}
               <Link className="navbar-item" to="/">
                 <span className="icon">
                   <i className="fa fa-bug"></i>
@@ -60,7 +83,7 @@ class App extends Component {
               <Switch>
                 <Route exact path='/' component={Home}/>
                 <Route exact path='/add' render={()=><AddBugForm onNewBug={this.addBug} />} />
-                <Route exact path='/view' component={BugTable}/>
+                <Route exact path='/view'render={()=><BugTable bugs={this.state.data} />} />
               </Switch>
               
         </div>

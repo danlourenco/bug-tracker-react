@@ -80,8 +80,6 @@ class AddBugForm extends Component {
       </form>
         </div>
       </section>
-      
-
     )
   }
 }
