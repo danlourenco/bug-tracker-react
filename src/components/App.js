@@ -5,6 +5,20 @@ import AddBugForm from './AddBugForm'
 import Home from './Home'
 import { Link, Switch, Route } from 'react-router-dom'
 
+/* BugTrakr
+
+Demonstrates use of React, state, stateless functional components and class components
+
+
+To Do:
+
+Implement edit, delete functions
+Persist data to localstorage
+OKTA integration for authentication
+
+*/
+
+
 class App extends Component {
 
     constructor(props) {
@@ -21,7 +35,7 @@ class App extends Component {
           },
           {
             id: 1,
-            reporter: "Peter Tork",
+            reporter: "John Doe",
             title: "Computer catches fire when inspecting DOM",
             description: "When I open the dev tools, my computer bursts into flames",
             severity: "high",
@@ -52,7 +66,12 @@ class App extends Component {
           console.log(this.state.data)
         }
       });
+    }
 
+    deleteBug = (id) => {
+      // pull in copy of state data
+      // delete the object at the index of the id
+      // set data equal to copy of state data
     }
 
     // load from localStorage if available
@@ -83,7 +102,7 @@ class App extends Component {
               <Switch>
                 <Route exact path='/' component={Home}/>
                 <Route exact path='/add' render={()=><AddBugForm onNewBug={this.addBug} />} />
-                <Route exact path='/view'render={()=><BugTable bugs={this.state.data} />} />
+                <Route exact path='/view'render={()=><BugTable bugs={this.state.data} onDeleteBug={this.deleteBug} />} />
               </Switch>
               
         </div>
@@ -91,4 +110,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App

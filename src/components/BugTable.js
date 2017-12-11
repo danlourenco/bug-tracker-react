@@ -8,10 +8,12 @@ const BugTable = ({bugs}) =>
       <table className="table is-bordered">
     <thead className="is-primary">
       <tr>
+        <th>ID</th>
         <th>Description</th>
         <th>Reporter</th>
         <th>Severity</th>
         <th>Status</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
